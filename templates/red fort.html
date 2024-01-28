@@ -29,6 +29,9 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=PT+Sans" type="text/css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/responsive.css">
     <style>
         p{text-align: justify;}
     </style>
@@ -36,32 +39,29 @@
 <body>
 <div id="body-bg">
     
-    <div id="pre-header" class="container" style="height:340px">
-    </div>
-    <div id="header">
+    <nav class="main_nav" style="background-color: black; opacity: 50%;">
         <div class="container">
             <div class="row">
-                <!-- Logo -->
+                <div class="col main_nav_col d-flex flex-row align-items-center justify-content-end">
+                    <div class="logo_container">
+                        <div class="logo"><a href="#"><img src="static/static/images/logo.png" alt=""></a></div>
+                    </div>
+                    <div class="col-md-2">
+                    <div class="main_nav_container ml-auto">
+                        <ul class="main_nav_list">
+                            <li class="main_nav_item"><a href="{{url_for('index')}}">HOME</a></li>
+                            
+                            </a></li>
+                            
+                        </ul>
+                    </div>
+                    </div>
 
-                <!-- End Logo -->
-            </div>
-        </div>
-    </div>
-    <!-- Top Menu -->
-      <div id="hornav" class="container no-padding">
-        <div class="row">
-            <div class="col-md-12 no-padding">
-                <div class="text-center visible-lg">
-                    <ul id="hornavmenu" class="nav navbar-nav">
-                        <li>
-                            <a href="{{url_for('index')}}" class="fa-home">Home</a>
-                        </li>
-                        
-                    </ul>
+                    
                 </div>
             </div>
-        </div>
-    </div>
+        </div>	
+    </nav>
     <!-- End Top Menu -->
     <div id="post_header" class="container" style="height:340px">
     </div>

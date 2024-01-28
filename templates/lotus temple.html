@@ -29,6 +29,9 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=PT+Sans" type="text/css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/responsive.css">
     <style>
         p{text-align: justify;}
     </style>
@@ -37,32 +40,26 @@
 <div id="body-bg">
     
    
-    <div id="pre-header" class="container" style="height:340px">
-    </div>
-    <div id="header">
-        <div class="container">
-            <div class="row">
-                <!-- Logo -->
-
-                <!-- End Logo -->
-            </div>
+    <nav class="navbar navbar-expand-lg justify-content-between" style="background-color:#443772; opacity: 70%;">
+        <div class="container-fluid ">
+          
+          <div class="collapse navbar-collapse " id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <b><a class="nav-link active" style="color: white; text-decoration: underline;" aria-current="page" href="{{url_for('index')}}">HOME</a></b>
+              </li>
+             
+            </ul>
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll ml-auto" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                  <b><a class="nav-link active" style="color: white; " aria-current="page" href="{{url_for('index')}}">TRIPMAPPING</a></b>
+                </li>
+               
+              </ul>
+          </div>
+          
         </div>
-    </div>
-    <!-- Top Menu -->
-       <div id="hornav" class="container no-padding">
-        <div class="row">
-            <div class="col-md-12 no-padding">
-                <div class="text-center visible-lg">
-                    <ul id="hornavmenu" class="nav navbar-nav">
-                        <li>
-                            <a href="{{url_for('index')}}" class="fa-home">Home</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+      </nav>
     
     <!-- End Top Menu -->
     <div id="post_header" class="container" style="height:340px">
@@ -87,7 +84,7 @@
                     <!-- Carousel Images -->
                     <div class="carousel-inner">
 
-                        <img src="static/img/slideshow/slide4.jpg                                                                                                                                                                                                                                                                                                     ">
+                        <img src="static/img/slideshow/slide4.jpg ">
 
 
 

@@ -11,6 +11,8 @@
 
 
     <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="description" content="">
     <meta name="author" content="">
@@ -29,39 +31,79 @@
     <link href="http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=PT+Sans" type="text/css" rel="stylesheet">
     <link href="http://fonts.googleapis.com/css?family=Roboto:400,300" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="static/styles/bootstrap4/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/main_styles.css">
+    <link rel="stylesheet" type="text/css" href="static/styles/responsive.css">
     <style>
         p{text-align: justify;}
+    </style>
+    <style>
+        /* Styles for the overlay */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Styles for the popup */
+        .popup {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            width:78%;
+            height:78%;
+        }
+
+        /* Close button style */
+        .close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 18px;
+        }
+
+        /* Responsive iframe */
+        .map-iframe {
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
 <div id="body-bg">
     
-    <div id="pre-header" class="container" style="height:340px">
-    </div>
-    <div id="header">
-        <div class="container">
-            <div class="row">
-                <!-- Logo -->
-
-                <!-- End Logo -->
-            </div>
+        
+      
+    <nav class="navbar navbar-expand-lg justify-content-between" style="background-color:#443772; opacity: 70%;">
+        <div class="container-fluid ">
+          
+          <div class="collapse navbar-collapse " id="navbarScroll">
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+              <li class="nav-item">
+                <b><a class="nav-link active" style="color: white; text-decoration: underline;" aria-current="page" href="{{url_for('index')}}">HOME</a></b>
+              </li>
+             
+            </ul>
+            <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll ml-auto" style="--bs-scroll-height: 100px;">
+                <li class="nav-item">
+                  <b><a class="nav-link active" style="color: white; " aria-current="page" href="{{url_for('index')}}">TRIPMAPPING</a></b>
+                </li>
+               
+              </ul>
+          </div>
+          
         </div>
-    </div>
-    <!-- Top Menu -->
-      <div id="hornav" class="container no-padding">
-        <div class="row">
-            <div class="col-md-12 no-padding">
-                <div class="text-center visible-lg">
-                    <ul id="hornavmenu" class="nav navbar-nav">
-                        <li>
-                            <a href="{{url_for('index')}}" class="fa-home">Home</a>
-                        </li>
-                        
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
+      </nav>
     <!-- End Top Menu -->
     <div id="post_header" class="container" style="height:340px">
     </div>
@@ -75,29 +117,20 @@
                 <!-- Carousel Slideshow -->
                 <div id="carousel-example" class="carousel slide" data-ride="carousel">
                     <!-- Carousel Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example" data-slide-to="1"></li>
-                        <li data-target="#carousel-example" data-slide-to="2"></li>
-                    </ol>
+                    
                     <div class="clearfix"></div>
                     <!-- End Carousel Indicators -->
                     <!-- Carousel Images -->
                     <div class="carousel-inner">
 
                         <img src="static/img/slideshow/slide9.jpg">
-
+                        
 
 
                     </div>
                     <!-- End Carousel Images -->
                     <!-- Carousel Controls -->
-                    <a class="left carousel-control" href="#carousel-example" data-slide="prev">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" href="#carousel-example" data-slide="next">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
+                    
                     <!-- End Carousel Controls -->
                 </div>
                 <!-- End Carousel Slideshow -->
@@ -153,12 +186,10 @@
                     <ul class="portfolio-group">
                         <!-- Portfolio Item -->
                         <li class="portfolio-item col-sm-6 col-xs-6 padding-20">
-                            <a href="https://www.google.com/maps/search/Hotels/@16.8302623,75.7339265,17z/data=!3m1!4b1!4m8!2m7!3m6!1sHotels!2sGol+Gumbaz,+Jadar+Galli,+Vijayapura,+Karnataka+586104!3s0x3bc65574c0cdafa3:0xd964a78d4d2e25a6!4m2!1d75.7361152!2d16.8302623">
                                 <figure class="animate fadeInLeft">
                                     <img alt="image1" src='static/img/frontpage/hotel.jpg'>
                                     <figcaption>
-                                        <h3>NEAR BY HOTELS</h3>
-
+                                        <button onclick="openPopup()" style="border-width: 0; background-color:#5f807a; font-size: 25px;">NEAR BY HOTELS</button>
                                     </figcaption>
                                 </figure>
                             </a>
@@ -166,11 +197,10 @@
                         <!-- //Portfolio Item// -->
                         <!-- Portfolio Item -->
                         <li class="portfolio-item col-sm-6 col-xs-6 padding-20">
-                            <a href="https://www.google.com/maps/search/Restaurants/@16.8302623,75.7339265,17z/data=!3m1!4b1!4m8!2m7!3m6!1sRestaurants!2sGol+Gumbaz,+Jadar+Galli,+Vijayapura,+Karnataka+586104!3s0x3bc65574c0cdafa3:0xd964a78d4d2e25a6!4m2!1d75.7361152!2d16.8302623">
                                 <figure class="animate fadeInRight">
                                     <img alt="image2" src='static/img/frontpage/res.jpg'>
                                     <figcaption>
-                                        <h3>NEAR BY RESTAURANTS</h3>
+                                        <button onclick="openPopup1()" style="border-width: 0; background-color:#5f807a; font-size: 25px;">NEAR BY RESTAURANTS</button>
                                     </figcaption>
                                 </figure>
                             </a>
@@ -178,35 +208,32 @@
                         <!-- //Portfolio Item// -->
                         <!-- Portfolio Item -->
                         <li class="portfolio-item col-sm-6 col-xs-6 padding-20">
-                            <a href="https://www.google.com/maps/search/tourist+attractions/@16.8302618,75.7295491,15z/data=!3m1!4b1!4m8!2m7!3m6!1stourist+attractions!2sGol+Gumbaz,+Jadar+Galli,+Vijayapura,+Karnataka+586104!3s0x3bc65574c0cdafa3:0xd964a78d4d2e25a6!4m2!1d75.7361152!2d16.8302623">
                                 <figure class="animate fadeInLeft">
                                     <img alt="image3" src='static/img/frontpage/image3.jpg'>
                                     <figcaption>
-                                        <h3>NEAR BY TOURIST LOCATIONS</h3>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </li>
-                        <!-- //Portfolio Item// -->
-                        <!-- Portfolio Item -->
-                        <li class="portfolio-item col-sm-6 col-xs-6 padding-20">
-                            <a href="https://www.google.com/maps/place/Gol+Gumbaz/@16.8302623,75.7361152,3a,75y,90t/data=!3m8!1e2!3m6!1sAF1QipPXRl07J6xJ7LsGPt9S8vCR4FezosVOkkYwTu23!2e10!3e12!6shttps:%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipPXRl07J6xJ7LsGPt9S8vCR4FezosVOkkYwTu23%3Dw203-h152-k-no!7i4160!8i3120!4m5!3m4!1s0x3bc65574c0cdafa3:0xd964a78d4d2e25a6!8m2!3d16.8302623!4d75.7361152">
-                                <figure class="animate fadeInRight">
-                                    <img alt="image4" src='static/img/frontpage/gal.jpg'>
-                                    <figcaption>
-                                        <h3>GALLERY</h3>
+                                        <button onclick="openPopup3()" style="border-width: 0; background-color:#5f807a; font-size: 25px;">TOURIST LOCATIONS</button>
 
                                     </figcaption>
                                 </figure>
                             </a>
                         </li>
+                        <!-- //Portfolio Item// -->
+                        <!-- Portfolio Item -->
                         <li class="portfolio-item col-sm-6 col-xs-6 padding-20">
-                                    <a href="https://www.yr.no/place/India/Karnataka/Bijapur/">
+                                <figure class="animate fadeInRight">
+                                    <img alt="image4" src='static/img/frontpage/gal.jpg'>
+                                    <figcaption>
+                                        <button onclick="openPopup2()" style="border-width: 0; background-color:#5f807a; font-size: 25px;">GALLERY</button>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="portfolio-item col-sm-6 col-xs-6 padding-20">
                                         <figure class="animate fadeInLeft">
                                             <img alt="image3" src='static/img/frontpage/weather.jpg'>
                                             <figcaption>
-                                                <h3>WEATHER</h3>
-                                                                                            </figcaption>
+                                                <button onclick="openPopup4()" style="border-width: 0; background-color:#5f807a; font-size: 25px;">WEATHER</button>
+                                            </figcaption>
                                         </figure>
                                     </a>
                                 </li>
@@ -225,6 +252,42 @@
         </div>
 
     </div>
+    <div class="overlay" id="popupOverlay">
+        <!-- Popup content -->
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup()">&times;</span>
+            <iframe class="map-iframe" src="https://www.tripadvisor.in/HotelsNear-g13854965-d1224242-Gol_Gumbaz-Vijayapura_Vijayapura_District_Karnataka.html" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="overlay" id="popupOverlay1">
+        <!-- Popup content -->
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup1()">&times;</span>
+            <iframe class="map-iframe" src="https://restaurants.heyplaces.in/Bijapur/bijapur_Golgumbaz/" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="overlay" id="popupOverlay2">
+        <!-- Popup content -->
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup2()">&times;</span>
+            <iframe class="map-iframe" src="https://www.toptourist.com/whispering-gallery-gol-gumbaz/" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="overlay" id="popupOverlay3">
+        <!-- Popup content -->
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup3()">&times;</span>
+            <iframe class="map-iframe" src="https://www.tripadvisor.in/AttractionsNear-g13854965-d1224242-Gol_Gumbaz-Vijayapura_Vijayapura_District_Karnataka.html" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="overlay" id="popupOverlay4">
+        <!-- Popup content -->
+        <div class="popup">
+            <span class="close-btn" onclick="closePopup4()">&times;</span>
+            <iframe class="map-iframe" src="https://www.holidify.com/places/bijapur/best-time-to-visit.html" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+    
     <!-- === END CONTENT === -->
     <!-- === BEGIN FOOTER === -->
 
@@ -246,6 +309,61 @@
     <!-- Modernizr -->
     <script src="static/js/modernizr.custom.js" type="text/javascript"></script>
     <!-- End JS -->
+    <script>
+        // Function to open the popup
+        function openPopup() {
+            document.getElementById('popupOverlay').style.display = 'flex';
+        }
+    
+        // Function to close the popup
+        function closePopup() {
+            document.getElementById('popupOverlay').style.display = 'none';
+        }
+    </script>
+    <script>
+        // Function to open the popup
+        function openPopup1() {
+            document.getElementById('popupOverlay1').style.display = 'flex';
+        }
+    
+        // Function to close the popup
+        function closePopup1() {
+            document.getElementById('popupOverlay1').style.display = 'none';
+        }
+    </script>
+    <script>
+        // Function to open the popup
+        function openPopup2() {
+            document.getElementById('popupOverlay2').style.display = 'flex';
+        }
+    
+        // Function to close the popup
+        function closePopup2() {
+            document.getElementById('popupOverlay2').style.display = 'none';
+        }
+    </script>
+    <script>
+        // Function to open the popup
+        function openPopup3() {
+            document.getElementById('popupOverlay3').style.display = 'flex';
+        }
+    
+        // Function to close the popup
+        function closePopup3() {
+            document.getElementById('popupOverlay3').style.display = 'none';
+        }
+    </script>
+    <script>
+        // Function to open the popup
+        function openPopup4() {
+            document.getElementById('popupOverlay4').style.display = 'flex';
+        }
+    
+        // Function to close the popup
+        function closePopup4() {
+            document.getElementById('popupOverlay4').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
 <!-- === END FOOTER === -->

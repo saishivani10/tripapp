@@ -58,6 +58,7 @@ class item_similarity_recommender_py():
     #Get unique items (songs) corresponding to a given user
     def get_user_items(self, user):
         user_data = self.train_data[self.train_data[self.user_id] == user]
+        
         user_items = list(user_data[self.item_id].unique())
         
         return user_items
